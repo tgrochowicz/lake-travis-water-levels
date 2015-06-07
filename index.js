@@ -53,6 +53,17 @@ function insertData(data) {
 	})
 }
 
+var pingIntervalId;
+
+function selfRefresh() {
+	pingIntervalId = setInterval(function() {
+      return request('/refresh', function(err, resp, body){
+      	console.log('refreshed');
+      	selfRefresh();
+      });
+    }, 5 * 60 * 1000);
+}
+
 function retrieveData(callback) {
 	request('http://hydromet.lcra.org/riverreport/report.aspx', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
@@ -77,6 +88,8 @@ app.get('/refresh', function(request, response) {
 	retrieveData(insertData);
 	response.send(200);
 });
+
+selfRefresh();
 
 app.listen(app.get('port'), function() {
 	console.log('Node app is running on port', app.get('port'));
