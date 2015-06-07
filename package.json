@@ -7,7 +7,12 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "~4.9.x"
+    "express": "~4.9.x",
+    "jquery": "^2.1.4",
+    "jsdom": "^3.1.2",
+    "pg": "4.x",
+    "request": "^2.57.0",
+    "time": "^0.11.3"
   },
   "engines": {
     "node": "0.12.2"
