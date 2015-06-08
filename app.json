@@ -1,7 +1,17 @@
 {
-  "name": "Node.js Getting Started",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"]
+  "name": "Lake Travis Water Levels API",
+  "description": "A barebones, probably poorly written API for Lake Travis Water Levels",
+  "repository": "https://github.com/tgrochowcz/lake-travis-water-levels",
+  "keywords": ["node", "express", "static"],
+  "env": {
+  	"AWS_ACCESS_KEY": {
+  		"description": "Access key to your AWS account"
+  	},
+	"AWS_SECRET_KEY": {
+		"description": "Secret Key for your AWS account"
+	},
+	"S3_BUCKET": {
+		"description": "S3 Bucket for lakedata.json to be uploaded to"
+	}
+  }
 }

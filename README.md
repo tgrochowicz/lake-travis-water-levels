@@ -14,6 +14,4 @@ Sample Response:
 	timestamp: "Sun Jun 07 2015 23:54:43 GMT+0000 (UTC)"
 }
 
-
-
 Provided without warranty by @tgrochowicz, with support by @rgrochowicz.
