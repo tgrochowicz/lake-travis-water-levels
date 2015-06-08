@@ -12,11 +12,11 @@ Sample Response:
 
 ```json
 {
-	currentDepth: 668.42,
-	fullVolume: 1134956,
-	maxVolume: 1216672.8320000002,
-	currentVolume: 912406,
-	timestamp: "Sun Jun 07 2015 23:54:43 GMT+0000 (UTC)"
+	"currentDepth": 668.42,
+	"fullVolume": 1134956,
+	"maxVolume": 1216672.8320000002,
+	"currentVolume": 912406,
+	"timestamp": "Sun Jun 07 2015 23:54:43 GMT+0000 (UTC)"
 }
 ```
 
