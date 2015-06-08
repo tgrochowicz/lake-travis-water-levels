@@ -2,6 +2,9 @@ A barebones API for Lake Travis water levels.
 
 Currently available at: https://lake-travis-water-levels.herokuapp.com/lakedata
 
+Use that, or deploy your own:
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 /lakedata
 
 Sample Response:
