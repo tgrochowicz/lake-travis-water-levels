@@ -20,4 +20,4 @@ Sample Response:
 }
 ```
 
-Provided without warranty by [@tgrochowicz](http://twitter.com/tgrochowicz), with support by [@rgrochowicz](http://twitter.com/rgrochowicz.
+Provided without warranty by [@tgrochowicz](http://twitter.com/tgrochowicz), with support by [@rgrochowicz](http://twitter.com/rgrochowicz).
