@@ -2,23 +2,15 @@ var _ = require('lodash');
 var express = require('express');
 var request = require('request');
 var cheerio = require('cheerio');
-var AWS = require('aws-sdk');
+var NodeCache = require( "node-cache" );
 var app = express();
 
+
+var cache = new NodeCache();
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
-var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
-var S3_BUCKET = process.env.S3_BUCKET;
-
-console.log(AWS_ACCESS_KEY, AWS_SECRET_KEY);
-var s3_params = {
-	Bucket: S3_BUCKET,
-	Key: 'lakedata.json'
-}
-AWS.config.update({accessKeyId: AWS_ACCESS_KEY, secretAccessKey: AWS_SECRET_KEY});
 
 
 app.all('/*', function(req, res, next) {
@@ -34,12 +26,8 @@ app.get('/', function(request, response) {
 });
 
 app.get('/lakedata', function(request, response) {
-	var s3 = new AWS.S3();
-	s3.getObject(s3_params, function (err, data) {
-		if (err) response.send(500).end();
-		var body = JSON.parse(data.Body.toString());
-		response.send(body);
-	})
+	var body = cache.get('lakedata');
+	response.send(body);
 })
 
 function dataFromColumn($row, column) {
@@ -49,15 +37,7 @@ function dataFromColumn($row, column) {
 }
 
 function insertData(data) {
-	// replace file
-
-	var file = _.extend({ Body: JSON.stringify(data) }, s3_params);
-	
-	var s3 = new AWS.S3();
-	s3.upload(file, function (resp) {
-		console.log(resp);
-	})
-	
+	cache.set('lakedata', data);
 }
 
 var pingIntervalId;

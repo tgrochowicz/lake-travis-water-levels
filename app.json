@@ -4,14 +4,5 @@
   "repository": "https://github.com/tgrochowcz/lake-travis-water-levels",
   "keywords": ["node", "express", "static"],
   "env": {
-  	"AWS_ACCESS_KEY": {
-  		"description": "Access key to your AWS account"
-  	},
-	"AWS_SECRET_KEY": {
-		"description": "Secret Key for your AWS account"
-	},
-	"S3_BUCKET": {
-		"description": "S3 Bucket for lakedata.json to be uploaded to"
-	}
   }
 }
